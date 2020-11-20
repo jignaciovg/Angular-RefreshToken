@@ -24,10 +24,14 @@ export class LoginService {
       const refreshToken = (<any>response).refreshToken;
       localStorage.setItem("jwt", token);
       localStorage.setItem("refreshToken", refreshToken);
+      console.log('Inicio sesion');
+      console.log(token);
       this.invalidLogin = false;
       this._router.navigate(["/"]);
     }, err => {
       this.invalidLogin = true;
+      console.log('No se pudo iniciar sesion');
+
     });
   }
 

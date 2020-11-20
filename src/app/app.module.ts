@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HomeComponent } from './pages/home/home.component';
 import { TopbarComponent } from './components/navigation/topbar/topbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     PageNotFoundComponent,
     HomeComponent,
-    TopbarComponent
+    TopbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
