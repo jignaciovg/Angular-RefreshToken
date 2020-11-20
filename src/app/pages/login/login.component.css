@@ -132,7 +132,7 @@ iframe {
 .txt1 {
   font-family: Montserrat-Regular;
   font-size: 16px;
-  color: #cccccc;
+  color: white;
   line-height: 1.4;
 }
 
@@ -190,7 +190,7 @@ iframe {
   opacity: 0.9;
 }
 
-a{
+.txt1{
   color: white;
 }
 .wrap-login100 {
