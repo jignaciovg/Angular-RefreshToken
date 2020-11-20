@@ -190,6 +190,9 @@ iframe {
   opacity: 0.9;
 }
 
+a{
+  color: white;
+}
 .wrap-login100 {
   width: 390px;
   background: transparent;

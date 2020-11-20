@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../../services/core/login.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _LoginService:LoginService) { }
+
+  isToken;
 
   ngOnInit(): void {
+    var token = localStorage.getItem('jwt');
+    var refreshtoken = localStorage.getItem('refreshToken');
+    console.log('token '+ token);
+    console.log('refreshToken '+ refreshtoken);
+
+    if(token == '' || token == null || token == undefined){
+      this.isToken = false;
+    }else{
+      this.isToken = true;
+    }
+  }
+
+  onLogout(){
+    this._LoginService.logOut();
   }
 
 }

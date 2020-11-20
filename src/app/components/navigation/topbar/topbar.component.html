@@ -12,10 +12,13 @@
         <a class="nav-link" [routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']">Iniciar Sesion</a>
+        <a class="nav-link" *ngIf="isToken==false" [routerLink]="['/login']">Iniciar Sesion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cerrar Sesion</a>
+        <a class="nav-link" *ngIf="isToken==true">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isToken==true" (click)="onLogout()">Cerrar Sesion</a>
       </li>
     </ul>
   </div>
