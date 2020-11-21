@@ -2,6 +2,8 @@
   <h1 class="display-3">Bienvenido!</h1>
   <h2 class="verde" *ngIf="isToken==true">Tu token es valido</h2>
   <h2 class="rojo" *ngIf="isToken==false">Tu token es invalido</h2>
+  <p *ngIf="isToken==true">Token: {{token}}</p>
+  <p *ngIf="isToken==true">RefreshToken: {{refreshtoken}}</p>
   <hr class="my-4">
   <p>Para continuar navegando, inicie sesion</p>
 </div>

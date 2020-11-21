@@ -7,12 +7,21 @@ import {LoginService} from '../../../services/core/login.service';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent implements OnInit {
-
-  constructor(private _LoginService:LoginService) { }
-
   isToken;
 
+  constructor(private _LoginService:LoginService) {
+    this.validarToken();
+   }
+
   ngOnInit(): void {
+    this.validarToken();
+  }
+
+  onLogout(){
+    this._LoginService.logOut();
+  }
+
+  validarToken(){
     var token = localStorage.getItem('jwt');
     var refreshtoken = localStorage.getItem('refreshToken');
     console.log('token '+ token);
@@ -24,9 +33,4 @@ export class TopbarComponent implements OnInit {
       this.isToken = true;
     }
   }
-
-  onLogout(){
-    this._LoginService.logOut();
-  }
-
 }

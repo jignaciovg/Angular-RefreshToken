@@ -13,7 +13,9 @@ export class LoginService {
   invalidLogin;
 
   public login = (form: NgForm) => {
-    const credentials = JSON.stringify(form.value);
+    let credentials = JSON.stringify(form);
+    console.log('CREDENCIALES '+ credentials);
+
     this.http.post("https://localhost:44333/api/auth/login",
     credentials, {
       headers: new HttpHeaders({
@@ -38,6 +40,8 @@ export class LoginService {
   public logOut = () => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("refreshToken");
+    let token = localStorage.getItem('jwt');
+    console.log('Token borrado exitosamente '+token);
     this._router.navigate(["/"]);
   }
 }

@@ -6,20 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
   isToken;
-  ngOnInit(): void {
-    var token = localStorage.getItem('jwt');
-    var refreshtoken = localStorage.getItem('refreshToken');
-    console.log('token '+ token);
-    console.log('refreshToken '+ refreshtoken);
+  token;
+  refreshtoken;
+  constructor() {this.validarToken();}
 
-    if(token == '' || token == null || token == undefined){
+  ngOnInit(): void {
+    this.validarToken();
+  }
+
+  validarToken(){
+    this.token = localStorage.getItem('jwt');
+    this.refreshtoken = localStorage.getItem('refreshToken');
+    console.log('token '+ this.token);
+    console.log('refreshToken '+ this.refreshtoken);
+
+    if(this.token == '' || this.token == null || this.token == undefined){
       this.isToken = false;
     }else{
       this.isToken = true;
     }
   }
-
 }

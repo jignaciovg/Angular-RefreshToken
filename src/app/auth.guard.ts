@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate {
 
     let isRefreshSuccess: boolean;
     try {
-      const response = await this.http.post("http://localhost:44333/api/token/refresh", credentials, {
+      const response = await this.http.post("https://localhost:44333/api/token/refresh", credentials, {
         headers: new HttpHeaders({
           "Content-Type": "application/json"
         }),

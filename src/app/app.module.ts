@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { TopbarComponent } from './components/navigation/topbar/topbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,20 @@ import { ProfileComponent } from './pages/profile/profile.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44333"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
